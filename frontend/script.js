@@ -1,19 +1,11 @@
-//texto do historico
+//texto do historico e notificações
 const historico = document.getElementById("historico");
+const notificacoes = document.getElementById("notificacoes");
 //parte do resultado
 const estrutura_A = document.getElementById("estrutura_A");
 const estrutura_operador = document.getElementById("estrutura_operador");
 const estrutura_B = document.getElementById("estrutura_B");
 const resultado = document.getElementById("resultado");
-//botões de ações
-const limpar = document.getElementById("limpar");
-const apagar = document.getElementById("apagar");
-const porcentagem = document.getElementById("porcentagem");
-const divisao = document.getElementById("divisao");
-const multipicacao = document.getElementById("multipicacao");
-const subtracao = document.getElementById("subtracao");
-const soma = document.getElementById("soma");
-const igual = document.getElementById("igual");
 //botões dos numeros
 const number1 = document.getElementById("number1");
 const number2 = document.getElementById("number2");
@@ -30,9 +22,31 @@ const number0 = document.getElementById("number0");
 let ladoAtivo = "A";
 let operadorEscolhido = "";
 
+export function apagarTudo() {
+    estrutura_A.textContent = "";
+    estrutura_B.textContent = "";
+    estrutura_operador.textContent = "";
+}
+
+export function apagar() {
+    if (ladoAtivo === "A") {
+        estrutura_A.textContent = estrutura_A.textContent.slice(0, -1);
+    }
+    if (ladoAtivo === "B" && estrutura_B.textContent === "") {
+        estrutura_operador.textContent = estrutura_operador.textContent.slice(0, -1);
+        ladoAtivo = "A";
+    }
+    if (ladoAtivo === "B") {
+        estrutura_B.textContent = estrutura_B.textContent.slice(0, -1);
+    }
+}
 
 export function clicarOperador(operador) {
 
+    if (estrutura_A.textContent === "") {
+        notificacoes.textContent = "Ponha um numero antes do operador!"
+        return;
+    }
     operadorEscolhido = operador;
     estrutura_operador.textContent = operador;
 
@@ -47,6 +61,3 @@ export function clicarNumero(numero) {
         estrutura_B.textContent += numero;
     }
 }
-
-
-

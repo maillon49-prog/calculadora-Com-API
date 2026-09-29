@@ -36,14 +36,17 @@ main {
     max-width: 704px;
     display: grid;
     grid-template-columns: minmax(0, 380px) minmax(0, 300px);
-    grid-template-areas: "calculadora historico";
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "calculadora historico"
+        "calculadora notificacoes";
     align-items: start;
     gap: 24px;
 }
 
-/* Historico a direita, com o titulo separado da lista de contas. */
-.historico_css {
-    grid-area: historico;
+/* Historico e notificacoes empilhados a direita da calculadora. */
+.historico_css,
+.notificacoes_css {
     min-width: 0;
     min-height: 160px;
     padding: 20px 24px;
@@ -57,7 +60,16 @@ main {
     box-shadow: 0 12px 32px #00000025;
 }
 
-.historico_css h2 {
+.historico_css {
+    grid-area: historico;
+}
+
+.notificacoes_css {
+    grid-area: notificacoes;
+}
+
+.historico_css h2,
+.notificacoes_css h2 {
     margin: 0;
     padding-bottom: 12px;
     border-bottom: 1px solid #35434a;
@@ -68,7 +80,8 @@ main {
     overflow-wrap: anywhere;
 }
 
-#historico {
+#historico,
+#notificacoes {
     min-height: 0;
     max-height: 360px;
     margin: 0;
@@ -82,6 +95,10 @@ main {
     overflow-wrap: anywhere;
     scrollbar-width: thin;
     scrollbar-color: #52766b #1b252e;
+}
+
+#notificacoes {
+    text-align: left;
 }
 
 .bloco_claculadora {
@@ -240,18 +257,21 @@ main {
     box-shadow: inset 0 2px 6px #00000030;
 }
 
-/* Em telas menores, o historico fica abaixo da calculadora. */
+/* Em telas menores, historico e notificacoes ficam abaixo da calculadora. */
 @media (max-width: 720px) {
     main {
         max-width: 380px;
         grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto;
         grid-template-areas:
             "calculadora"
-            "historico";
+            "historico"
+            "notificacoes";
         gap: 16px;
     }
 
-    #historico {
+    #historico,
+    #notificacoes {
         max-height: 180px;
     }
 }
@@ -267,7 +287,8 @@ main {
         border-radius: 24px;
     }
 
-    .historico_css {
+    .historico_css,
+    .notificacoes_css {
         padding: 16px;
         border-radius: 16px;
     }
