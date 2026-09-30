@@ -11,11 +11,15 @@ const resultado = document.getElementById("resultado");
 let ladoAtivo = "A";
 let operadorEscolhido = "";
 
+let historico_dados =
+                JSON.parse(localStorage.getItem("historico")) || [];
+
 export function apagarTudo() {
     estrutura_A.textContent = "";
     estrutura_B.textContent = "";
     estrutura_operador.textContent = "";
     resultado.textContent = "0";
+    ladoAtivo = "A";
 }
 
 export function apagar() {
@@ -31,10 +35,19 @@ export function apagar() {
     }
 }
 
+export function apagarHistorico() {
+
+    localStorage.removeItem("historico");
+
+    historico_dados =[];
+
+    historico.innerHTML = "";
+}
+
 export function clicarOperador(operador) {
 
     if (estrutura_A.textContent === "") {
-        notificacoes.textContent = "Ponha um numero antes do operador!"
+        notificacoes.textContent = "Digite um número antes de escolher o operador.";
         return;
     }
     operadorEscolhido = operador;
@@ -75,11 +88,42 @@ export async function calcular() {
 
         resultado.textContent = dados.mensagem;
 
-        historico.textContent += `${estrutura_A.textContent} ${estrutura_operador.textContent} ${estrutura_B.textContent} = ${dados.mensagem}`;
+
+        historicoTela(estrutura_A.textContent,estrutura_operador.textContent,estrutura_B.textContent,dados.mensagem);
+        carregarHistorico();
 
 
     } catch (erro) {
+        console.error(erro);
+        notificacoes.textContent = "O sistema não está respondendo. Tente novamente.";
 
     }
 
+}
+
+function historicoTela(valor1,operador,valor2,resultado) {
+    historico_dados.push({
+        numero1: valor1,
+        operador: operador,
+        numero2: valor2,
+        total: resultado
+    });
+    
+    localStorage.setItem(
+        "historico",
+        JSON.stringify(historico_dados)
+    );
+
+}
+
+export function carregarHistorico() {
+
+    historico.innerHTML = "";
+
+    historico_dados.forEach(function(item){
+
+
+        historico.innerHTML +=  `<p>${item.numero1} ${item.operador} ${item.numero2} = ${item.total}</p>`;
+
+    });
 }
