@@ -70,7 +70,8 @@ export async function calcular() {
     try {
 
 
-        const resposta = await fetch("http://localhost:3000/calcular", {
+        const resposta = await fetch(
+            "https://calculadora-api-maillon.onrender.com/calcular", {
 
             method: "POST",
             headers: {
