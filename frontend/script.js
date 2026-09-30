@@ -6,17 +6,6 @@ const estrutura_A = document.getElementById("estrutura_A");
 const estrutura_operador = document.getElementById("estrutura_operador");
 const estrutura_B = document.getElementById("estrutura_B");
 const resultado = document.getElementById("resultado");
-//botões dos numeros
-const number1 = document.getElementById("number1");
-const number2 = document.getElementById("number2");
-const number3 = document.getElementById("number3");
-const number4 = document.getElementById("number4");
-const number5 = document.getElementById("number5");
-const number6 = document.getElementById("number6");
-const number7 = document.getElementById("number7");
-const number8 = document.getElementById("number8");
-const number9 = document.getElementById("number9");
-const number0 = document.getElementById("number0");
 
 
 let ladoAtivo = "A";
@@ -26,6 +15,7 @@ export function apagarTudo() {
     estrutura_A.textContent = "";
     estrutura_B.textContent = "";
     estrutura_operador.textContent = "";
+    resultado.textContent = "0";
 }
 
 export function apagar() {
@@ -60,4 +50,36 @@ export function clicarNumero(numero) {
     } if (ladoAtivo === "B") {
         estrutura_B.textContent += numero;
     }
+}
+
+export async function calcular() {
+
+    try {
+
+
+        const resposta = await fetch("http://localhost:3000/calcular", {
+
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                valorA: Number(estrutura_A.textContent),
+                valorB: Number(estrutura_B.textContent),
+                operador: estrutura_operador.textContent
+            })
+        });
+
+        const dados = await resposta.json();
+
+        resultado.textContent = dados.mensagem;
+
+        historico.textContent += `${estrutura_A.textContent} ${estrutura_operador.textContent} ${estrutura_B.textContent} = ${dados.mensagem}`;
+
+
+    } catch (erro) {
+
+    }
+
 }

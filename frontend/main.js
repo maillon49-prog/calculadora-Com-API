@@ -1,4 +1,4 @@
-import { clicarNumero, clicarOperador, apagarTudo, apagar} from "./script.js";
+import { clicarNumero, clicarOperador, apagarTudo, apagar, calcular} from "./script.js";
 
 //botões de ações
 const bntLimpar = document.getElementById("limpar");
@@ -20,6 +20,16 @@ bntLimpar.addEventListener("click", function() {
 bltApagar.addEventListener("click", function() {
     apagar();
 });
+
+bntIgual.addEventListener("click", function() {
+    calcular();
+});
+
+
+
+
+
+
 
 botoesNumeros.forEach(function(botao) {
 
