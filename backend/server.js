@@ -10,6 +10,25 @@ app.post("/calcular", function(req, res) {
 
     const {valorA, valorB, operador} = req.body;
     let total = 0;
+    const operadoresValidos = ["+", "-", "%", "÷", "X"];
+
+    if (!Number.isFinite(valorA) || !Number.isFinite(valorB)) {
+        return res.status(400).json({
+            mensagem: "Valores inválidos. Certifique-se de enviar números válidos."
+        });
+    }
+
+    if (!operadoresValidos.includes(operador)) {
+        return res.status(400).json({
+            mensagem: "Operador inválido. Certifique-se de enviar um operador válido."
+        });
+    }
+
+    if (valorA === 0 && operador === "÷") {
+        return res.status(400).json({
+            mensagem: "Divisão por zero não é permitida."
+        });
+    }
 
     if (operador === "+") {
         total = valorA + valorB;
