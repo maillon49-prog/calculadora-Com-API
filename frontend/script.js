@@ -87,7 +87,14 @@ export async function calcular() {
 
         const dados = await resposta.json();
 
+        if (!resposta.ok) {
+            notificacoes.textContent = dados.mensagem;
+            return;
+        }
+
+        notificacoes.textContent = "";
         resultado.textContent = dados.mensagem;
+        
 
 
         historicoTela(estrutura_A.textContent,estrutura_operador.textContent,estrutura_B.textContent,dados.mensagem);

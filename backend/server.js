@@ -24,7 +24,7 @@ app.post("/calcular", function(req, res) {
         });
     }
 
-    if (valorA === 0 && operador === "÷") {
+    if (valorB === 0 && operador === "÷") {
         return res.status(400).json({
             mensagem: "Divisão por zero não é permitida."
         });
