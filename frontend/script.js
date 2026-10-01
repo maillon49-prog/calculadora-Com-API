@@ -67,6 +67,10 @@ export function clicarNumero(numero) {
 
 export async function calcular() {
 
+    if (estrutura_A.textContent === "" || estrutura_B.textContent === "" || estrutura_operador.textContent === "") {
+        notificacoes.textContent = "Preencha todos os campos antes de calcular.";
+        return;
+    }
     try {
 
 
