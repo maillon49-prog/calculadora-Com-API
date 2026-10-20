@@ -1,12 +1,23 @@
-<p align="center"><img src="assets/readme-cover.svg" alt="Capa do projeto Calculadora Full-Stack com API" width="100%"></p>
-# Calculadora Full-Stack com API
-![HTML](https://img.shields.io/badge/HTML-5-e34f26?style=for-the-badge) ![CSS](https://img.shields.io/badge/CSS-3-1572b6?style=for-the-badge) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-f7df1e?style=for-the-badge) ![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge) ![Status](https://img.shields.io/badge/Status-Concluido-22c55e?style=for-the-badge)
+<p align="center">
+  <img src="assets/readme-cover.svg" alt="Capa do projeto Calculadora Full-Stack com API" width="100%" />
+</p>
+
+<h1 align="center">Calculadora Full-Stack com API</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML-5-e34f26?style=for-the-badge" alt="HTML" height="28" />
+  <img src="https://img.shields.io/badge/CSS-3-1572b6?style=for-the-badge" alt="CSS" height="28" />
+  <img src="https://img.shields.io/badge/JavaScript-ES6-f7df1e?style=for-the-badge" alt="JavaScript" height="28" />
+  <img src="https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge" alt="Node.js" height="28" />
+  <img src="https://img.shields.io/badge/Status-Concluido-22c55e?style=for-the-badge" alt="Status" height="28" />
+</p>
 
 > Calculadora web com operações matemáticas processadas por uma API REST. Um projeto focado na comunicação entre front-end e back-end, validação de dados e experiência do usuário.
 
 🧮 **[Testar calculadora](https://maillon49-prog.github.io/calculadora-Com-API/)** · 💻 **[Ver código](https://github.com/maillon49-prog/calculadora-Com-API)**
 
 ## ✨ O que o projeto faz
+
 - ➕ Soma, subtração, multiplicação, divisão e porcentagem
 - ✅ Valida os valores e os operadores enviados à API
 - 🚫 Evita divisão por zero
@@ -14,11 +25,21 @@
 - 🔄 Envia requisições com `fetch` para o servidor Express
 
 ## 🛠️ Tecnologias
+
 | Interface | API | Persistência |
 | :-- | :-- | :-- |
 | HTML, CSS e JavaScript | Node.js, Express e CORS | `localStorage` no navegador |
 
+## 💻 Um trecho real do meu código
+
+Imagem criada diretamente a partir do arquivo [`backend/server.js`](https://github.com/maillon49-prog/calculadora-Com-API/blob/main/backend/server.js#L9-L19), linhas 9–19. O conteúdo do trecho foi mantido exatamente como está no repositório.
+
+<p align="center">
+  <img src="assets/codigo-real.svg" width="100%" alt="Código real de backend/server.js" />
+</p>
+
 ## 🧭 Como funciona
+
 ```mermaid
 flowchart LR
   A[Usuário escolhe a operação] --> B[JavaScript envia POST]
@@ -29,6 +50,7 @@ flowchart LR
 ```
 
 ### Exemplo de requisição
+
 `POST /calcular`
 
 ```json
@@ -47,6 +69,7 @@ flowchart LR
 Em requisições inválidas, a API pode responder com `400`, incluindo uma mensagem explicativa.
 
 ## 🚀 Executar localmente
+
 **Requisitos:** Node.js e npm.
 
 ```bash
@@ -59,6 +82,7 @@ npm start
 Depois, abra `frontend/index.html` no navegador. O front-end do repositório também está configurado para utilizar a API hospedada no Render.
 
 ## 📁 Organização do projeto
+
 ```text
 calculadora-Com-API/
 ├── backend/        # API Express e package.json
@@ -67,6 +91,7 @@ calculadora-Com-API/
 ```
 
 ## 🎯 O que pratiquei
+
 Requisições HTTP, tratamento de erros, validação de entrada, lógica matemática no servidor e separação de responsabilidades entre interface e API.
 
 ---
