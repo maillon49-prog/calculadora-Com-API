@@ -1,44 +1,35 @@
+<p align="center"><img src="assets/readme-cover.svg" alt="Capa do projeto Calculadora Full-Stack com API" width="100%"></p>
 # Calculadora Full-Stack com API
+![HTML](https://img.shields.io/badge/HTML-5-e34f26?style=for-the-badge) ![CSS](https://img.shields.io/badge/CSS-3-1572b6?style=for-the-badge) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-f7df1e?style=for-the-badge) ![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge) ![Status](https://img.shields.io/badge/Status-Concluido-22c55e?style=for-the-badge)
 
-Calculadora web desenvolvida para praticar integração entre front-end e back-end.
+> Calculadora web com operações matemáticas processadas por uma API REST. Um projeto focado na comunicação entre front-end e back-end, validação de dados e experiência do usuário.
 
-O projeto possui uma interface feita com HTML, CSS e JavaScript e um back-end em Node.js com Express responsável por processar as operações matemáticas através de uma API.
+🧮 **[Testar calculadora](https://maillon49-prog.github.io/calculadora-Com-API/)** · 💻 **[Ver código](https://github.com/maillon49-prog/calculadora-Com-API)**
 
-## Funcionalidades
+## ✨ O que o projeto faz
+- ➕ Soma, subtração, multiplicação, divisão e porcentagem
+- ✅ Valida os valores e os operadores enviados à API
+- 🚫 Evita divisão por zero
+- 🕘 Mantém o histórico de cálculos no `localStorage`, com opção de limpar
+- 🔄 Envia requisições com `fetch` para o servidor Express
 
-- Soma
-- Subtração
-- Multiplicação
-- Divisão
-- Porcentagem
-- Validação de valores enviados
-- Bloqueio de divisão por zero
-- Histórico de cálculos salvo no `localStorage`
-- Limpeza do histórico
-- Comunicação entre front-end e API usando `fetch`
+## 🛠️ Tecnologias
+| Interface | API | Persistência |
+| :-- | :-- | :-- |
+| HTML, CSS e JavaScript | Node.js, Express e CORS | `localStorage` no navegador |
 
-## Tecnologias utilizadas
-
-### Front-end
-- HTML
-- CSS
-- JavaScript
-
-### Back-end
-- Node.js
-- Express
-- CORS
-- API REST
-
-## Como funciona
-
-O front-end envia uma requisição `POST` para o endpoint:
-
-```text
-/calcular
+## 🧭 Como funciona
+```mermaid
+flowchart LR
+  A[Usuário escolhe a operação] --> B[JavaScript envia POST]
+  B --> C[API Express valida os valores]
+  C --> D[Calcula o resultado]
+  D --> E[Retorna JSON]
+  E --> F[Exibe resultado e salva histórico]
 ```
 
-A API recebe:
+### Exemplo de requisição
+`POST /calcular`
 
 ```json
 {
@@ -48,28 +39,40 @@ A API recebe:
 }
 ```
 
-e retorna o resultado do cálculo em JSON.
+**Resposta de sucesso (`200`):**
+```json
+{ "mensagem": 15 }
+```
 
-## Executando o projeto localmente
+Em requisições inválidas, a API pode responder com `400`, incluindo uma mensagem explicativa.
 
-Entre na pasta do back-end:
+## 🚀 Executar localmente
+**Requisitos:** Node.js e npm.
 
 ```bash
-cd backend
+git clone https://github.com/maillon49-prog/calculadora-Com-API.git
+cd calculadora-Com-API/backend
 npm install
 npm start
 ```
 
-Depois abra o arquivo `frontend/index.html` no navegador.
+Depois, abra `frontend/index.html` no navegador. O front-end do repositório também está configurado para utilizar a API hospedada no Render.
 
-> O front-end atualmente também está configurado para consumir a API publicada no Render.
+## 📁 Organização do projeto
+```text
+calculadora-Com-API/
+├── backend/        # API Express e package.json
+├── frontend/       # Interface HTML, CSS e JavaScript
+└── README.md
+```
 
-## Objetivo do projeto
+## 🎯 O que pratiquei
+Requisições HTTP, tratamento de erros, validação de entrada, lógica matemática no servidor e separação de responsabilidades entre interface e API.
 
-Este projeto foi criado para praticar a separação entre front-end e back-end, requisições HTTP, validação de dados e criação de uma API simples com Node.js e Express.
+---
 
-## Autor
+### 👨‍💻 Autor
 
-**Maillon Andrade de Oliveira**
+Desenvolvido por **Maillon Andrade de Oliveira**, como parte dos meus estudos e projetos práticos de programação.
 
-GitHub: [maillon49-prog](https://github.com/maillon49-prog)
+[GitHub](https://github.com/maillon49-prog) · [Portfólio](https://github.com/maillon49-prog/Portifolio)
