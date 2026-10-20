@@ -14,8 +14,8 @@
 <rect x="633" y="51" width="591" height="58" rx="16" fill="#151f2e"/><rect x="633" y="90" width="591" height="19" fill="#151f2e"/>
 <circle cx="661" cy="80" r="6" fill="#f87171"/><circle cx="682" cy="80" r="6" fill="#fbbf24"/><circle cx="703" cy="80" r="6" fill="#34d399"/>
 <text x="746" y="85" font-family="Consolas, Monaco, monospace" font-size="14" fill="#8495ad">projeto / codigo</text>
-<text x="675" y="164" font-family="Consolas, Monaco, monospace" font-size="17" fill="#59ddf5">app.post(&quot;/calcular&quot;, function(req, res) {</text>
-<text x="675" y="196" font-family="Consolas, Monaco, monospace" font-size="17" fill="#cbd5e1">  const {valorA, valorB, operador} = req.body;</text>
-<text x="675" y="228" font-family="Consolas, Monaco, monospace" font-size="17" fill="#cbd5e1">  res.status(200).json({ mensagem: total });</text>
-<text x="674" y="272" font-family="Consolas, Monaco, monospace" font-size="14" fill="#a78bfa">// desenvolvido para aprender na pratica</text>
+<text x="675" y="164" font-family="Consolas, Monaco, monospace" font-size="17" fill="#59ddf5" xml:space="preserve">app.post(&quot;/calcular&quot;, function(req, res) {</text>
+<text x="675" y="196" font-family="Consolas, Monaco, monospace" font-size="17" fill="#cbd5e1" xml:space="preserve">    const {valorA, valorB, operador} = req.body;</text>
+<text x="675" y="228" font-family="Consolas, Monaco, monospace" font-size="17" fill="#cbd5e1" xml:space="preserve">    let total = 0;</text>
+<text x="674" y="272" font-family="Consolas, Monaco, monospace" font-size="14" fill="#a78bfa" xml:space="preserve">    const operadoresValidos = [&quot;+&quot;, &quot;-&quot;, &quot;%&quot;, &quot;÷&quot;, &quot;X&quot;];</text>
 </svg>
